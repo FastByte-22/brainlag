@@ -1,6 +1,6 @@
 # brainlag
 Informatik Facharbeit- free2play
 
-note: You'll have to rename the 'brainlag.txt' into 'brainlag.log'
+For questions, ask me via Email: david10608@gmail.com
 
 MAKE SURE YOU READ THE MANUAL BEFORE PLAYING!
