@@ -1,0 +1,267 @@
+to BRAINLAG
+start
+end
+
+to btnPlopp :btnNr
+	buttondelete :btnNr	
+	wait 30
+	setBtnback :btnNr 
+	buttonenable :btnNr "False 
+	print "btnPloppfinished
+end
+
+to check :btn ;checkt ob button vorher aufgeploppt ist
+	ifelse :btn = :v1 [print "yay 
+				BUTTONUPDATE :btn "richtig 
+				SETPENCOLOR [255 0 0]
+				SETPENSIZE 32 
+				fd 71.4 SETPENCOLOR [0 0 0]
+				corcheck] [
+		ifelse :btn= :v2[print "yay2 
+					BUTTONUPDATE :btn "richtig 
+					SETPENCOLOR [0 255 0]
+					SETPENSIZE 32 
+					fd 71.4 SETPENCOLOR [0 0 0]
+					corcheck] [	
+			ifelse :btn= :v3[print "yay3 
+						BUTTONUPDATE :btn "richtig 
+						SETPENCOLOR [0 0 255]
+						SETPENSIZE 32 
+						fd 71.4 SETPENCOLOR [0 0 0]	
+						corcheck] [
+				ifelse :btn= :v4[print "yay4 
+							BUTTONUPDATE :btn "richtig 
+							SETPENCOLOR [255 255 0]
+							SETPENSIZE 32
+							fd 71.4 SETPENCOLOR [0 0 0]
+							corcheck] [
+					ifelse :btn=:v5[print "yay5 
+								BUTTONUPDATE :btn "richtig
+								SETPENCOLOR [0 255 255]
+								SETPENSIZE 32
+								fd 71.4 SETPENCOLOR [0 0 0]
+								corcheck] [
+						ifelse :btn = :v6 [print "yay6 
+									BUTTONUPDATE :btn "richtig 
+									SETPENCOLOR [255 0 255]
+									SETPENSIZE 32 
+									fd 71.4 SETPENCOLOR [0 0 0]
+									corcheck] [
+							ifelse :btn = :v7 [print "yay7 
+										BUTTONUPDATE :btn "richtig 
+										SETPENCOLOR [255 255 255]
+										SETPENSIZE 32
+										fd 71.4 SETPENCOLOR [0 0 0]
+										corcheck] [
+											MESSAGEBOX "FEHLER [TRY AGAIN!]
+											SETPENCOLOR [0 0 0]
+											deleteall
+											createbtns
+											startzielbild
+											make "zähler 0
+											repeat 40 [buttonenable :zähler "False 
+											make "zähler :zähler+1] 
+											buttonenable "start "True
+							]
+						]
+					]
+				]
+			]
+		]
+	]
+end
+
+to corcheck
+if ycor = -208.4 [MESSAGEBOX "YAY [CONGRATULATIONS! YOU WON!]
+			deleteall
+			createbtns
+			startzielbild
+			make "zähler 0
+			repeat 40 [buttonenable :zähler "False 
+					make "zähler :zähler+1] 
+					buttonenable "start "True]
+end
+
+to createbtns
+	make "x 0 ;zähler
+; erste buttonreihe
+	buttoncreate "main :x :x -300 250 100 100 	[check 0] make "x :x+1
+	buttoncreate "main :x :x -200 250 100 100 	[check 1] make "x :x+1
+	buttoncreate "main :x :x -100 250 100 100 	[check 2] make "x :x+1
+	buttoncreate "main :x :x 0 250 100 100 	[check 3] make "x :x+1
+	buttoncreate "main :x :x 100 250 100 100 	[check 4] make "x :x+1	
+	buttoncreate "main :x :x 200 250 100 100 	[check 5] make "x :x+1
+	buttoncreate "main :x :x 300 250 100 100 	[check 6] make "x :x+1
+	buttoncreate "main :x :x 400 250 100 100 	[check 7] make "x :x+1
+; zweite buttonreihe
+	buttoncreate "main :x :x -300 150 100 100	[check 8] make "x :x+1
+	buttoncreate "main :x :x -200 150 100 100 	[check 9] make "x :x+1
+	buttoncreate "main :x :x -100 150 100 100 	[check 10] make "x :x+1
+	buttoncreate "main :x :x 0 150 100 100 	[check 11] make "x :x+1
+	buttoncreate "main :x :x 100 150 100 100 	[check 12] make "x :x+1
+	buttoncreate "main :x :x 200 150 100 100 	[check 13] make "x :x+1
+	buttoncreate "main :x :x 300 150 100 100 	[check 14] make "x :x+1
+	buttoncreate "main :x :x 400 150 100 100 	[check 15] make "x :x+1
+; dritte buttonreihe
+	buttoncreate "main :x :x -300 50 100 100 	[check 16] make "x :x+1
+	buttoncreate "main :x :x -200 50 100 100 	[check 17] make "x :x+1
+	buttoncreate "main :x :x -100 50 100 100 	[check 18] make "x :x+1
+	buttoncreate "main :x :x 0 50 100 100 	[check 19] make "x :x+1
+	buttoncreate "main :x :x 100 50 100 100 	[check 20] make "x :x+1
+	buttoncreate "main :x :x 200 50 100 100 	[check 21] make "x :x+1
+	buttoncreate "main :x :x 300 50 100 100 	[check 22] make "x :x+1
+	buttoncreate "main :x :x 400 50 100 100 	[check 23] make "x :x+1
+; vierte buttonreihe
+	buttoncreate "main :x :x -300 -50 100 100 	[check 24] make "x :x+1
+	buttoncreate "main :x :x -200 -50 100 100 	[check 25] make "x :x+1
+	buttoncreate "main :x :x -100 -50 100 100 	[check 26] make "x :x+1
+	buttoncreate "main :x :x 0 -50 100 100 	[check 27] make "x :x+1
+	buttoncreate "main :x :x 100 -50 100 100 	[check 28] make "x :x+1
+	buttoncreate "main :x :x 200 -50 100 100 	[check 29] make "x :x+1
+	buttoncreate "main :x :x 300 -50 100 100 	[check 30] make "x :x+1
+	buttoncreate "main :x :x 400 -50 100 100 	[check 31] make "x :x+1
+; fünfte buttonreihe
+	buttoncreate "main :x :x -300 -150 100 100	[check 32] make "x :x+1
+	buttoncreate "main :x :x -200 -150 100 100	[check 33] make "x :x+1
+	buttoncreate "main :x :x -100 -150 100 100	[check 34] make "x :x+1
+	buttoncreate "main :x :x 0 -150 100 100	[check 35] make "x :x+1
+	buttoncreate "main :x :x 100 -150 100 100 	[check 36] make "x :x+1
+	buttoncreate "main :x :x 200 -150 100 100 	[check 37] make "x :x+1
+	buttoncreate "main :x :x 300 -150 100 100 	[check 38] make "x :x+1
+	buttoncreate "main :x :x 400 -150 100 100 	[check 39] make "x :x+1
+;startgame btn
+	buttoncreate "main "start "start 0 350 50 50 [startgame]
+end
+
+to deleteall ;für Entwicklungszwecke,löscht alles
+	cs
+	make "x 0
+	repeat 40 [buttondelete :x 
+			make "x :x+1]
+	buttondelete "start
+end
+
+to deletebtns ;für Entwicklungszwecke,löscht alle btns
+	make "x 0
+	repeat 40 [buttondelete :x make "x :x+1]
+end
+
+to randomdelete ;random aufploppen der Buttons
+	make "y random 39 repeat 2[btnPlopp :y wait 2]
+		make "v1 :y
+	make "y random 39 repeat 2[btnPlopp :y wait 2]
+		make "v2 :y
+	make "y random 39 repeat 2[btnPlopp :y wait 2]
+		make "v3 :y
+	make "y random 39 repeat 2[btnPlopp :y wait 2]
+		make "v4 :y
+	make "y random 39 repeat 2[btnPlopp :y wait 2]
+		make "v5 :y
+	make "y random 39 repeat 2[btnPlopp :y wait 2]
+		make "v6 :y
+	make "y random 39 repeat 2[btnPlopp :y wait 2]
+		make "v7 :y
+
+end
+
+to setBtnback :kords
+	print :kords
+	if :kords=0 [buttoncreate "main :kords :kords -300 250 100 100	[check 0]]
+	if :kords=1 [buttoncreate "main :kords :kords -200 250 100 100 	[check 1]]
+	if :kords=2 [buttoncreate "main :kords :kords -100 250 100 100 	[check 2]]
+	if :kords=3 [buttoncreate "main :kords :kords 0 250 100 100 	[check 3]]
+	if :kords=4 [buttoncreate "main :kords :kords 100 250 100 100 	[check 4]]
+	if :kords=5 [buttoncreate "main :kords :kords 200 250 100 100 	[check 5]]
+	if :kords=6 [buttoncreate "main :kords :kords 300 250 100 100 	[check 6]]
+	if :kords=7 [buttoncreate "main :kords :kords 400 250 100 100 	[check 7]]
+	if :kords=8 [buttoncreate "main :kords :kords -300 150 100 100	[check 8]]
+	if :kords=9 [buttoncreate "main :kords :kords -200 150 100 100 	[check 9]]
+	if :kords=10 [buttoncreate "main :kords :kords -100 150 100 100 [check 10]]
+	if :kords=11 [buttoncreate "main :kords :kords 0 150 100 100 	[check 11]]
+	if :kords=12 [buttoncreate "main :kords :kords 100 150 100 100 	[check 12]]
+	if :kords=13 [buttoncreate "main :kords :kords 200 150 100 100 	[check 13]]
+	if :kords=14 [buttoncreate "main :kords :kords 300 150 100 100 	[check 14]]
+	if :kords=15 [buttoncreate "main :kords :kords 400 150 100 100 	[check 15]]
+	if :kords=16 [buttoncreate "main :kords :kords -300 50 100 100 	[check 16]]
+	if :kords=17 [buttoncreate "main :kords :kords -200 50 100 100 	[check 17]]
+	if :kords=18 [buttoncreate "main :kords :kords -100 50 100 100 	[check 18]]
+	if :kords=19 [buttoncreate "main :kords :kords 0 50 100 100 	[check 19]]
+	if :kords=20 [buttoncreate "main :kords :kords 100 50 100 100 	[check 20]]
+	if :kords=21 [buttoncreate "main :kords :kords 200 50 100 100 	[check 21]]
+	if :kords=22 [buttoncreate "main :kords :kords 300 50 100 100 	[check 22]]
+	if :kords=23 [buttoncreate "main :kords :kords 400 50 100 100 	[check 23]]
+	if :kords=24 [buttoncreate "main :kords :kords -300 -50 100 100 [check 24]]
+	if :kords=25 [buttoncreate "main :kords :kords -200 -50 100 100 [check 25]]
+	if :kords=26 [buttoncreate "main :kords :kords -100 -50 100 100 [check 26]]
+	if :kords=27 [buttoncreate "main :kords :kords 0 -50 100 100 	[check 27]]
+	if :kords=28 [buttoncreate "main :kords :kords 100 -50 100 100 	[check 28]]
+	if :kords=29 [buttoncreate "main :kords :kords 200 -50 100 100 	[check 29]]
+	if :kords=30 [buttoncreate "main :kords :kords 300 -50 100 100 	[check 30]]
+	if :kords=31 [buttoncreate "main :kords :kords  400 -50 100 100 	[check 31]]
+	if :kords=32 [buttoncreate "main :kords :kords -300 -150 100 100	[check 32]]
+ 	if :kords=33 [buttoncreate "main :kords :kords -200 -150 100 100	[check 33]]
+	if :kords=34 [buttoncreate "main :kords :kords -100 -150 100 100	[check 34]]
+	if :kords=35 [buttoncreate "main :kords :kords 0 -150 100 100		[check 35]]
+	if :kords=36 [buttoncreate "main :kords :kords 100 -150 100 100 	[check 36]]
+	if :kords=37 [buttoncreate "main :kords :kords 200 -150 100 100 	[check 37]]
+	if :kords=38 [buttoncreate "main :kords :kords 300 -150 100 100 	[check 38]]
+	if :kords=39 [buttoncreate "main :kords :kords 400 -150 100 100 	[check 39]]
+end
+
+to showmenu
+	windowcreate "window "window "MENU 100 100 200 100 []
+	buttoncreate "window "quit "QUIT 10 10 80 50 [cs 
+							windowdelete "menu]
+	buttoncreate "window "startbtn [Start Game] 100 10 80 50 [startbtn
+									]
+end
+
+to start
+	showmenu
+end
+
+to startbtn
+	ht 
+	startzielbild
+	createbtns
+	make "zähler 0
+	repeat 40 [buttonenable :zähler "False 
+			make "zähler :zähler+1] 
+
+end
+
+to startgame
+	buttonenable "start "False
+	randomdelete
+	make "zähler 0
+	repeat 40 [buttonenable :zähler "True 
+			make "zähler :zähler+1] 
+end
+
+to startzielbild
+st
+	pu
+	setpos[-450 -250]
+	bitload "F:\\FAIF\\StartZiel.bmp
+	setpos[-450 290]
+	rt 90 fd 30
+	setlabelfont [[Arial Black] -24 0 0 400 0 0 0 0 3 2 1 18]
+	label "START
+	lt 90 
+	setpos[-370 291.4]
+	lt 180
+	pd
+	SETPENCOLOR [255 0 0]
+	SETPENSIZE 32
+end
+
+setze "v1 2
+setze "v2 1
+setze "v3 6
+setze "v4 1
+setze "v5 11
+setze "v6 8
+setze "v7 12
+setze "x 40
+setze "y 12
+setze "zähler 40
